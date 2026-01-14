@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Events</title>
+</head>
+<body>
+    <h1>My Events</h1>
+
+    <a href="{% url 'events:event_create' %}">+ Create New Event</a>
+
+    <ul>
+        {% for event in events %}
+            <li>
+                <a href="{% url 'events:event_detail' event.pk %}">
+                    {{ event.name }} - {{ event.date }} {{ event.time }}
+                </a>
+                <a href="{% url 'events:event_create' %}">Create Event</a>
+                | <a href="{% url 'events:event_update' event.pk %}">Edit</a>
+                | <a href="{% url 'events:event_delete' event.pk %}">Delete</a>
+            </li>
+        {% empty %}
+            <li>No events found.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
