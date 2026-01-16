@@ -1,0 +1,111 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    color: #01060c;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #4a90e2;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button, .btn {
+    background-color: #4a90e2;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .btn:hover {
+    background-color: #357ab8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+/* Forms */
+form {
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74,144,226,0.5);
+}
+
+/* Links */
+a {
+    color: #4a90e2;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.event-info {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Center container for pages */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}

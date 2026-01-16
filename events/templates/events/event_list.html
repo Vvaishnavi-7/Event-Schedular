@@ -1,28 +1,101 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>My Events</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        ul {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0;
+            list-style: none;
+        }
+
+        .event-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 14px 20px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .event-text a {
+            color: #2563eb;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .edit, .delete,a.event {
+            min-width: 90px;
+            max-width: 100px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-size: 14px;
+            color: white;
+            text-decoration: none;
+        }
+        event.logout {
+            min-width: 90px;
+            height: 40px;
+            font-size: 16px;
+            padding: 0 20px;
+        }
+        .event{
+            background-color: green;
+            
+        }
+
+        .edit {
+            background-color: #f39c12;
+        }
+
+        .delete {
+            background-color: #e74c3c;
+        }
+    </style>
 </head>
+
 <body>
     <h1>My Events</h1>
 
-    <a href="{% url 'events:event_create' %}">+ Create New Event</a>
-
     <ul>
         {% for event in events %}
-            <li>
-                <a href="{% url 'events:event_detail' event.pk %}">
-                    {{ event.name }} - {{ event.date }} {{ event.time }}
-                </a>
-                <a href="{% url 'events:event_create' %}">Create Event</a>
-                | <a href="{% url 'events:event_update' event.pk %}">Edit</a>
-                | <a href="{% url 'events:event_delete' event.pk %}">Delete</a>
+            <li class="event-row">
+                <div class="event-text">
+                    <a href="{% url 'events:event_detail' event.pk %}">
+                        {{ event.name }} - {{ event.date }} {{ event.time }}
+                    </a>
+                </div>
+
+                <div class="actions">
+                    <a class="edit" href="{% url 'events:event_update' event.pk %}">Edit</a>
+                    <a class="delete" href="{% url 'events:event_delete' event.pk %}">Delete</a>
+                </div>
             </li>
         {% empty %}
-            <li>No events found.</li>
+            <li class="event-row">
+                <div class="event-text">
+                    No events found.
+                </div>
+            </li>
         {% endfor %}
     </ul>
 
-    <a href="{% url 'logout' %}">Logout</a>
+    <center>
+        <a class="event logout " href="{% url 'logout' %}" >Logout</a>
+    </center>
 </body>
 </html>
