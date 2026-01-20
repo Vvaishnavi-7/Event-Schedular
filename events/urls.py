@@ -8,7 +8,7 @@ urlpatterns = [
     # Home page
     path('', views.home, name='home'),
 
-    # Auth URLs  ✅ ADD THESE
+    # Auth URL 
     path('login/', views.user_login, name='login'),
     path('logout/', views.user_logout, name='logout'),
 
@@ -19,6 +19,6 @@ urlpatterns = [
     path('<int:pk>/update/', views.event_update, name='event_update'),
     path('<int:pk>/delete/', views.event_delete, name='event_delete'),
 
-    # Optional redirect
+    
     path('events/', RedirectView.as_view(url='/list/', permanent=False)),
 ]
